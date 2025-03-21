@@ -1,0 +1,56 @@
+# version: '3.8'
+
+# services:
+#   mongodb:
+#     image: mongo:latest
+#     container_name: mongodb_container
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongo_data:/data/db
+
+#   python_app:
+#     build: .
+#     container_name: beproject-python_app
+#     depends_on:
+#       - mongodb
+#     environment:
+#       - MONGO_URI=mongodb://mongodb:27017/
+#     volumes:
+#       - .:/app
+
+# volumes:
+#   mongo_data:
+
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - my_network
+
+  python_app:
+    build: ./app
+    container_name: client_script
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+    volumes:
+      - ./app:/app  # Sync local code with container
+    networks:
+      - my_network
+
+volumes:
+  mongo_data:
+
+networks:
+  my_network:
+
