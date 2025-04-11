@@ -5,7 +5,7 @@ import os
 import io
 
 # MongoDB Connection
-client = pymongo.MongoClient("mongodb://localhost:27018/")
+client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["mydatabase"]
 fs = gridfs.GridFS(db)
 
