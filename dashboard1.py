@@ -141,6 +141,25 @@ with col3:
 with col4:
     st.metric(label="Critical Hosts", value=critical_hosts)
 
+def style_metric_cards(
+    background_color: str = "#FFF",
+    border_left_color: str = "#000",
+    border_color: str = "#CCC"
+):
+    st.markdown(
+        f"""
+        <style>
+        [data-testid="stMetric"] {{
+            background-color: {background_color};
+            border: 1px solid {border_color};
+            border-left: 5px solid {border_left_color};
+            padding: 10px;
+            border-radius: 5px;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 style_metric_cards(
     background_color="#f8f9fc",
     border_left_color="#6C63FF",
