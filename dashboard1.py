@@ -291,12 +291,12 @@ if response.status_code == 200:
             cols[0].markdown(f"{name_mapping['disk_usage']}: {round(last_row['disk_usage'], 2)}")
             cols[1].markdown(f"{name_mapping['network_usage']}: {round(last_row['network_usage'], 2)}")
 
-        with st.expander("⚡ Power and Emissions"):
-            cols = st.columns(2)
-            cols[0].markdown(f"{name_mapping['total_power']}: {round(last_row['total_power'], 2)}")
-            cols[1].markdown(f"{name_mapping['carbon emission']}: {round(last_row['carbon emission'], 2)}")
-            cols = st.columns(2)
-            cols[0].markdown(f"{name_mapping['grid_intensity']}: {round(last_row['grid_intensity'], 2)}")
+        # with st.expander("⚡ Power and Emissions"):
+        #     cols = st.columns(2)
+        #     cols[0].markdown(f"{name_mapping['total_power']}: {round(last_row['total_power'], 2)}")
+        #     cols[1].markdown(f"{name_mapping['carbon emission']}: {round(last_row['carbon emission'], 2)}")
+        #     cols = st.columns(2)
+        #     cols[0].markdown(f"{name_mapping['grid_intensity']}: {round(last_row['grid_intensity'], 2)}")
 
         with st.expander("🤖 Predictions and Optimization"):
             cols = st.columns(2)
